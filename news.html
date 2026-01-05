@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TechSolutions - Your Digital Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <div id="preloader"> 
+      <div class="preloader-bg">
+        <span class="bg-strip"></span>
+        <span class="bg-strip"></span>
+        <span class="bg-strip"></span>
+        <span class="bg-strip"></span>
+        <span class="bg-strip"></span>
+        <span class="bg-strip"></span>
+        <span class="bg-strip"></span>
+        <span class="bg-strip"></span>
+      </div>
+      <div class="preloader-content">
+        <div class="mask mask-title">
+        <h3><span id="percent">0</span>
+          <span class="mask">
+          <span id="loading"> Loading...</span>
+          </span>
+        </h3>
+      </div>
+      <div class="mask mask-progress">
+        <div class="progress" id="progress">
+          <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <style>
+    .mask {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      vertical-align: bottom;
+    }
+      #preloader {
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    .preloader-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+    }
+    .bg-strip {
+      width: 12.5%;       /* 100 / 8 */
+      height: 100%;
+      background: #111;   /* đổi màu tùy thích */
+    }
+      .mask-title {
+        width: fit-content;
+      }
+      .preloader-content {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        position: relative; /* 🔥 bắt buộc */
+        z-index: 2;
+        width: 40%;
+        text-align: center;
+        color: #fff;
+      }
+
+    #percent {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      will-change: transform;
+    }
+    #loading {
+      display: inline-block;   /* ✅ FIX 2: để transform hoạt động đúng */
+      will-change: transform;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .mask-progress {
+      width: 100%;
+    }
+      .progress {
+        width: 100%;
+        height: 20px !important;
+        background-color: gray !important;
+        border-radius: 2px !important;
+      }
+      .progress-bar {
+        width: 0%;
+        background-color: #fff !important;
+      }
+      </style>
+  <script>    
+  const strips = gsap.utils.toArray(".bg-strip");
+const total = strips.length;
+const center = (total - 1) / 2;
+  let id;
+  console.log(document.getElementById("loading"));
+  let tl = gsap.timeline({
+    paused: true,
+  });
+  tl.to("#loading", {
+    xPercent: -100,   // chạy sang trái, bị mask cắt dần
+  duration: 0.5,
+  ease: "power2.inOut",
+  });
+  tl.to("#percent", {
+    xPercent: 100,
+    duration: 0.5,
+    ease: "power2.inOut",
+  });
+  tl.to("#percent", {
+    yPercent: 150,
+    duration: 0.5,
+    ease: "power2.inOut",
+  });
+  tl.to("#progress", {
+    yPercent: -150,
+    duration: 0.5,
+    ease: "power2.inOut",
+  },"<");
+  tl.to(strips, {
+  xPercent: (i) => (i < center ? -100 : 100),
+  duration: 1,
+  backgroundColor: "#fff",
+  opacity: 0,
+  ease: "power4.inOut",
+  stagger: {
+    from: "center",  // 🔥 bắt đầu từ 2 strip giữa
+    each: 0.08
+  }
+});
+  
+    move();
+    var percent = document.getElementById("percent");
+    var width = 0;
+    var progressBar = document.getElementById("progress-bar");
+    function move() {
+      id = setInterval(frame,100);
+    }
+    function frame() {
+      width = width + Math.floor(Math.random() * 10);
+      if (width >= 100) {
+        console.log(width);
+        progressBar.style.width = "100%";
+        setTimeout(() => {
+          percent.innerHTML = "100%";
+        }, 100);
+        clearInterval(id);
+        tl.play();
+      } else {
+        progressBar.style.width = width + "%";
+        setTimeout(() => {
+          percent.innerHTML = width + "%";
+        }, 100);
+      }
+    }
+  
+  </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- wow.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+  <body>
+    
+  </div>
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=40&h=32&fit=crop&auto=format" alt="Logo" class="me-2" width="40" height="32">
+            </a>
+      
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+              <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+              <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+              <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+              <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+            </ul>
+      
+            <div class="col-md-3 text-end">
+              <button type="button" class="btn btn-outline-primary me-2">Login</button>
+              <button type="button" class="btn btn-primary">Sign-up</button>
+            </div>
+        </header>
+        <section class="breadcrumb-section mb-5">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">News</li>
+                </ol>
+              </nav>
+        </section>
+        <section class="news-section mb-5">
+          <div class="row">
+            <div class="col-12 col-md-9 news-posts">
+              <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="Cloud Computing">
+                    <div class="card-body">
+                      <h5 class="card-title">The Future of Cloud Computing in 2025</h5>
+                      <p class="card-text">Discover how cloud computing is revolutionizing businesses worldwide. Learn about the latest trends, security improvements, and cost-effective solutions that are transforming the digital landscape.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="AI Technology">
+                    <div class="card-body">
+                      <h5 class="card-title">Artificial Intelligence: Transforming Business Operations</h5>
+                      <p class="card-text">Explore how AI is reshaping industries and creating new opportunities for growth. From automation to predictive analytics, see how businesses are leveraging AI to stay competitive.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="Cybersecurity">
+                    <div class="card-body">
+                      <h5 class="card-title">Essential Cybersecurity Practices for 2025</h5>
+                      <p class="card-text">Stay protected with the latest cybersecurity strategies. Learn about emerging threats and best practices to safeguard your digital assets and maintain customer trust.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="Data Analytics">
+                    <div class="card-body">
+                      <h5 class="card-title">Big Data Analytics: Unlocking Business Insights</h5>
+                      <p class="card-text">Learn how data analytics is helping companies make informed decisions and drive innovation. Discover tools and techniques to turn your data into actionable business intelligence.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="Web Development">
+                    <div class="card-body">
+                      <h5 class="card-title">Modern Web Development Trends You Should Know</h5>
+                      <p class="card-text">Stay ahead with the latest web development frameworks and technologies. From React to Next.js, explore the tools that are shaping the future of web applications.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="Mobile Technology">
+                    <div class="card-body">
+                      <h5 class="card-title">Mobile-First Design: Why It Matters</h5>
+                      <p class="card-text">With mobile traffic dominating the web, learn why mobile-first design is crucial for success. Discover responsive design principles and optimization techniques for better user experience.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>                
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="DevOps">
+                    <div class="card-body">
+                      <h5 class="card-title">DevOps Best Practices for Agile Teams</h5>
+                      <p class="card-text">Streamline your development workflow with proven DevOps methodologies. Learn about CI/CD pipelines, containerization, and automation tools that accelerate delivery.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop&auto=format" class="card-img-top" alt="Digital Transformation">
+                    <div class="card-body">
+                      <h5 class="card-title">Digital Transformation: A Complete Guide</h5>
+                      <p class="card-text">Navigate your digital transformation journey with confidence. Understand the key steps, challenges, and strategies to successfully modernize your business operations and stay competitive.</p>
+                      <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3 news-sidebar ">
+              <div class="search-form">
+                <h6 class="search-title text-uppercase text-decoration-underline mb-3">Search</h6>
+              <form class="d-flex ">
+                <div class="input-group">
+                    <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary px-4" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                </div>
+            </form>
+              </div>
+              <div class="categories-list">
+                <h6 class="categories-title text-uppercase text-decoration-underline mb-3">Categories</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#">Technology</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Marketing</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Development</a></li>
+                </ul>
+              </div>
+              <div class="recent-posts">
+                <h6 class="recent-posts-title text-uppercase text-decoration-underline mb-3">Recent Posts</h6>
+                <div class="card mb-3 w-100 border-0">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=200&h=150&fit=crop&auto=format" class="img-fluid rounded-start" alt="Cloud Computing">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fs-6">The Future of Cloud Computing in 2025</h5>
+                        <p class="card-text"><small class="text-body-secondary">28 October 2025</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3 w-100 border-0">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=150&fit=crop&auto=format" class="img-fluid rounded-start" alt="AI Technology">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fs-6">AI: Transforming Business Operations</h5>
+                        <p class="card-text"><small class="text-body-secondary">25 October 2025</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3 w-100 border-0">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=200&h=150&fit=crop&auto=format" class="img-fluid rounded-start" alt="Cybersecurity">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fs-6">Essential Cybersecurity Practices</h5>
+                        <p class="card-text"><small class="text-body-secondary">22 October 2025</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3 w-100 border-0">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=200&h=150&fit=crop&auto=format" class="img-fluid rounded-start" alt="Web Development">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fs-6">Modern Web Development Trends</h5>
+                        <p class="card-text"><small class="text-body-secondary">20 October 2025</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3 w-100 border-0">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=200&h=150&fit=crop&auto=format" class="img-fluid rounded-start" alt="DevOps">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title fs-6">DevOps Best Practices for Teams</h5>
+                        <p class="card-text"><small class="text-body-secondary">18 October 2025</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tags-list"></div>
+            </div>
+          </div>
+        </section>
+    </div>
+  </body>
+</html>
