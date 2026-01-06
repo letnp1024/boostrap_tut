@@ -1,9 +1,8 @@
 :root {
-  --primary-color: #11224E;
-  --primary-color-hover: #21408e;
-  --secondary-color: #F87B1B;
-  --secondary-color-hover: #fc9343;
-  --info-color: #CBD99B;
+  --primary-color: #213448;
+  --primary-color-hover: #547792;
+  --secondary-color: #ECEFCA;
+  --info-color: #547792;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
 }
@@ -16,7 +15,15 @@
   background-color: var(--primary-color-hover);
   border-color: var(--primary-color-hover);
 }
-
+.btn-outline-primary {
+    border-color: var(--primary-color-hover);
+    color: var(--info-color);
+}
+.btn-outline-primary:hover {
+  background-color: var(--primary-color-hover);
+  border-color: var(--primary-color-hover);
+  color: var(--light-color);
+}
 .text-primary {
   color: var(--primary-color) !important;
 }
@@ -147,7 +154,7 @@
   width: 60%;
 }
 .hero-section .open-caption {
-  color: var(--info-color);
+  color: var(--secondary-color);
   font-weight: bold;
   position: relative;
   padding-left: 110px; /* chừa chỗ cho đường kẻ */
@@ -159,7 +166,7 @@
   top: 50%;
   width: 100px;        /* độ dài đường kẻ */
   height: 2px;        /* độ dày */
-  background-color: var(--info-color); /* màu */
+  background-color: var(--secondary-color); /* màu */
   transform: translateY(-50%);
 }
 .hero-section .main-caption {
@@ -196,19 +203,31 @@
   height: 220px;
   text-align: center;
 }
+@keyframes animate-main-section-title {
+  0% {
+    transform: translateY(15%);
+  }
+  50% {
+    transform: translateY(-15%);
+  }
+  100% {  
+    transform: translateY(15%);
+  }
+}
 .main-section-title {
   font-family: 'Yellowtail', cursive;
   font-size: 100px;
   font-weight: semi-bold;
-  color: var(--primary-color-hover);
-  opacity: 0.15;
+  color: var(--secondary-color);
+  opacity: 0.7;
+  animation: animate-main-section-title 2s ease-in-out infinite;
 }
 .sub-section-title {
   content: attr(data-content);
   position: absolute;
   font-size: 20px;
   font-style: italic;
-  color: var(--primary-color);
+  color: var(--info-color);
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   top: 50%;
   left: 50%;
@@ -226,10 +245,38 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
+.services-section .services-content i {
+  font-size: 40px;
+  padding-bottom: 10px;
+}
+.services-section .services-content .card .card-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  transition: font-size 0.5s ease-in-out, margin 0.5s ease-in-out;
+}
+.services-section .services-content .card .card-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.services-section .services-content .card:hover .card-title {
+  font-size: 24px;
+  margin: 10px 0;
+  transition: font-size 0.5s ease-in-out, margin 0.5s ease-in-out;
+}
+.services-section .services-content .card:hover .card-text {
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  max-height: 500px;
+  opacity: 1;
+}
 .services-section .services-content .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+.services-section .services-content .card .btn {
+  width: 100%;
 }
 
 /* Ẩn img element vì đã dùng làm background */
@@ -383,4 +430,34 @@
     height: 100%;
     width: 100%;
     padding: 20px;
+  }
+
+  .cta-content h5 {
+    left: 0;
+    transform: translateX(0);
+    color: var(--info-color);
+    font-weight: bold;
+    position: relative;
+    padding-left: 110px; /* chừa chỗ cho đường kẻ */
+    padding-right: 110px; /* chừa chỗ cho đường kẻ */
+  }
+  .cta-content h5::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100px;        /* độ dài đường kẻ */
+    height: 2px;        /* độ dày */
+    background-color: var(--info-color); /* màu */
+    transform: translateY(-50%);
+  }
+  .cta-content h5::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 100px;        /* độ dài đường kẻ */
+    height: 2px;        /* độ dày */
+    background-color: var(--info-color); /* màu */
+    transform: translateY(-50%);
   }
