@@ -225,7 +225,7 @@ const center = (total - 1) / 2;
         </div>
       </div>
       </nav>
-    <div class="container">
+    <div class="container-fluid">
           <section id="hero-section" class="hero-section ">
             <div id="hero-carousel" class="carousel slide w-100 h-100 bg-transparent" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -236,31 +236,31 @@ const center = (total - 1) / 2;
                 <div class="carousel-inner w-100 h-100 bg-transparent">
                   <div class="carousel-item active">
                     <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop&auto=format" class="d-block w-100" alt="Nature Landscape">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-md-block">
                         <p class="open-caption">Welcome to TechSolutions</p>
                         <p class="main-caption">Transforming businesses with innovative technology solutions.</p>
                       </div>
                 </div>
                   <div class="carousel-item">
                     <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&h=600&fit=crop&auto=format" class="d-block w-100" alt="Mountain View">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-md-block">
                         <p class="open-caption">Expert Consulting Services</p>
                         <p class="main-caption">Get professional guidance from our experienced team of experts.</p>
                       </div>
                   </div>
                   <div class="carousel-item">
                     <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&h=600&fit=crop&auto=format" class="d-block w-100" alt="Forest Scene">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-md-block">
                         <p class="open-caption">24/7 Support & Maintenance</p>
                         <p class="main-caption">Round-the-clock assistance to keep your systems running smoothly.</p>
                       </div>
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+                <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+                <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
@@ -315,47 +315,50 @@ const center = (total - 1) / 2;
               <p class="main-section-title">Our Services</p>
               <p class="sub-section-title">"Comprehensive solutions tailored to your business needs"</p>
           </div>
-            <div class="services-content row  justify-content-center wow animate__animated animate__fadeInUp">
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Web Development">
-                    <div class="card-body">
-                      <i class="fas fa-globe"></i>
-                        <h5 class="card-title">Web Development</h5>
-                        <div class="card-text">
-                        <p>Create stunning, responsive websites that engage your audience and drive conversions. We build modern web applications using the latest technologies.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
+            <div class="services-content row justify-content-center wow animate__animated animate__fadeInUp">
+                <div class="col-12 services-posts">
+                    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Web Development">
+                                <div class="card-body">
+                                    <i class="fas fa-globe"></i>
+                                    <h5 class="card-title">Web Development</h5>
+                                    <div class="card-text">
+                                        <p>Create stunning, responsive websites that engage your audience and drive conversions. We build modern web applications using the latest technologies.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Cloud Solutions">
-                        <div class="card-body">
-                          <i class="fas fa-cloud"></i>
-                            <h5 class="card-title">Cloud Solutions</h5>
-                            <div class="card-text">
-                            <p>Migrate to the cloud and scale your infrastructure effortlessly. We provide secure, reliable cloud services that grow with your business.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Cloud Solutions">
+                                <div class="card-body">
+                                    <i class="fas fa-cloud"></i>
+                                    <h5 class="card-title">Cloud Solutions</h5>
+                                    <div class="card-text">
+                                        <p>Migrate to the cloud and scale your infrastructure effortlessly. We provide secure, reliable cloud services that grow with your business.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Data Analytics">
+                                <div class="card-body">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h5 class="card-title">Data Analytics</h5>
+                                    <div class="card-text">
+                                        <p>Turn your data into actionable insights. Our analytics solutions help you make informed decisions and optimize your business performance.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Data Analytics">
-                        <div class="card-body">
-                          <i class="fas fa-chart-line"></i>
-                            <h5 class="card-title">Data Analytics</h5>
-                            <div class="card-text">
-                            <p>Turn your data into actionable insights. Our analytics solutions help you make informed decisions and optimize your business performance.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             
           </section>
@@ -366,38 +369,41 @@ const center = (total - 1) / 2;
               <p class="main-section-title">Latest News</p>
               <p class="sub-section-title">"Stay updated with our latest insights and industry news"</p>
           </div>
-            <div class="news-content row  justify-content-center wow animate__animated animate__fadeInUp">
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Tech Innovation">
-                    <div class="card-body">
-                        <h5 class="card-title">Tech Innovation Trends 2025</h5>
-                        <p class="card-text">Discover the latest technology trends that are shaping the future of business and digital transformation.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-                </div>
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Cloud Computing">
-                        <div class="card-body">
-                            <h5 class="card-title">Cloud Computing Revolution</h5>
-                            <p class="card-text">Learn how cloud computing is revolutionizing the way businesses operate and scale their operations.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+            <div class="news-content row justify-content-center wow animate__animated animate__fadeInUp">
+                <div class="col-12 news-posts">
+                    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Tech Innovation">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tech Innovation Trends 2025</h5>
+                                    <p class="card-text">Discover the latest technology trends that are shaping the future of business and digital transformation.</p>
+                                    <a href="#" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="Cloud Computing">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cloud Computing Revolution</h5>
+                                    <p class="card-text">Learn how cloud computing is revolutionizing the way businesses operate and scale their operations.</p>
+                                    <a href="#" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="AI Development">
+                                <div class="card-body">
+                                    <h5 class="card-title">AI Development Insights</h5>
+                                    <p class="card-text">Explore the latest developments in artificial intelligence and how they're transforming industries.</p>
+                                    <a href="#" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format" class="card-img-top" alt="AI Development">
-                        <div class="card-body">
-                            <h5 class="card-title">AI Development Insights</h5>
-                            <p class="card-text">Explore the latest developments in artificial intelligence and how they're transforming industries.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             
           </section>
@@ -426,51 +432,55 @@ const center = (total - 1) / 2;
               <p class="sub-section-title">"Don't just take our word for it - hear from our satisfied customers"</p>
           </div>
             <div class="testimonials-content row justify-content-center">
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
-                    <div class="card border-0 text-center p-3">
-                        <div class="card-body">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&auto=format" class="rounded-circle mb-3" alt="Sarah Johnson" width="150" height="150">
-                            <h5 class="card-title">Sarah Johnson</h5>
-                            <div class="mb-2">
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
+                <div class="col-12 testimonials-posts">
+                    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                            <div class="card border-0 text-center p-3">
+                                <div class="card-body">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&auto=format" class="rounded-circle mb-3" alt="Sarah Johnson" width="150" height="150">
+                                    <h5 class="card-title">Sarah Johnson</h5>
+                                    <div class="mb-2">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <p class="card-text">"TechSolutions transformed our business operations. Their cloud migration service was seamless and our productivity increased by 40%. Highly recommended!"</p>
+                                </div>
                             </div>
-                            <p class="card-text">"TechSolutions transformed our business operations. Their cloud migration service was seamless and our productivity increased by 40%. Highly recommended!"</p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                    <div class="card border-0 text-center p-3">
-                        <div class="card-body">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&auto=format" class="rounded-circle mb-3" alt="Michael Chen" width="150" height="150">
-                            <h5 class="card-title">Michael Chen</h5>
-                            <div class="mb-2">
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                            <div class="card border-0 text-center p-3">
+                                <div class="card-body">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&auto=format" class="rounded-circle mb-3" alt="Michael Chen" width="150" height="150">
+                                    <h5 class="card-title">Michael Chen</h5>
+                                    <div class="mb-2">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <p class="card-text">"Outstanding web development team! They delivered our new website ahead of schedule and it exceeded all our expectations. The support has been exceptional."</p>
+                                </div>
                             </div>
-                            <p class="card-text">"Outstanding web development team! They delivered our new website ahead of schedule and it exceeded all our expectations. The support has been exceptional."</p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                    <div class="card border-0 text-center p-3">
-                        <div class="card-body">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&auto=format" class="rounded-circle mb-3" alt="Emily Rodriguez" width="150" height="150">
-                            <h5 class="card-title">Emily Rodriguez</h5>
-                            <div class="mb-2">
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="far fa-star text-warning"></i>
+                        <div class="col wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                            <div class="card border-0 text-center p-3">
+                                <div class="card-body">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&auto=format" class="rounded-circle mb-3" alt="Emily Rodriguez" width="150" height="150">
+                                    <h5 class="card-title">Emily Rodriguez</h5>
+                                    <div class="mb-2">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                    <p class="card-text">"The data analytics solutions provided incredible insights into our customer behavior. We've made better decisions and seen significant growth in our revenue."</p>
+                                </div>
                             </div>
-                            <p class="card-text">"The data analytics solutions provided incredible insights into our customer behavior. We've made better decisions and seen significant growth in our revenue."</p>
                         </div>
                     </div>
                 </div>

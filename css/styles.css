@@ -101,57 +101,25 @@
   color: var(--primary-color);
 }
 
-/* Responsive: Full screen menu trên mobile */
-@media (max-width: 768px) {
-  #menu-content {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
-  .mobile-menu {
-    display: block; /* Quan trọng: luôn hiển thị để transition hoạt động */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    transform: translateX(-100%); /* Ẩn menu bên trái */
-    transition: transform 0.3s ease-in-out;
-    overflow-y: auto;
-    padding-top: 80px;
-    z-index: 999;
-  }
-  
-  .mobile-menu.show {
-    transform: translateX(0); /* Hiện menu */
-  }
-} 
-
-.container {
-  font-family: 'Inter', sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 .hero-section {
     width: 100%;
 }
 .carousel-item img {
     object-fit: cover;
     filter: brightness(0.5);
+    height: 100%;
+  }
+.hero-section .carousel-inner {
+    height: 100%;
 }
 .carousel-item .carousel-caption {
+  width: 60%;
   left: 50%;              /* căn giữa trái phải */
   right: auto;
   top: 50%;              /* căn giữa trên dưới */
   bottom: auto;
   transform: translate(-50%, -50%); /* căn giữa cả hai chiều */
   text-align: left;      /* text căn trái */
-}
-.hero-section .carousel-caption {
-  width: 60%;
 }
 .hero-section .open-caption {
   color: var(--secondary-color);
@@ -174,25 +142,6 @@
   font-weight: bold;
   color: #fff;
 }
-.hero-section .carousel-inner {
-    height: 100%;
-}
-
-/* Carousel item với content layout */
-.carousel-item {
-    min-height: 500px;
-}
-
-.carousel-item .container {
-    height: 100%;
-}
-
-.carousel-item .about-us-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 40px 20px;
-}
 
 .section-title {
   position: relative;
@@ -203,7 +152,7 @@
   height: 220px;
   text-align: center;
 }
-@keyframes animate-main-section-title {
+/* @keyframes animate-main-section-title {
   0% {
     transform: translateY(15%);
   }
@@ -213,14 +162,13 @@
   100% {  
     transform: translateY(15%);
   }
-}
+} */
 .main-section-title {
   font-family: 'Yellowtail', cursive;
   font-size: 100px;
   font-weight: semi-bold;
   color: var(--secondary-color);
   opacity: 0.7;
-  animation: animate-main-section-title 2s ease-in-out infinite;
 }
 .sub-section-title {
   content: attr(data-content);
@@ -233,7 +181,6 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-
 .services-section .services-content .card {
   position: relative;
   border: none;
@@ -383,26 +330,8 @@
 .about-us-content .carousel{
   height: 350px;
 }
-.about-us-content .carousel-indicators {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  height: auto;
-  width: auto;
-  margin: 0;
-  padding: 0;
-}
 .about-us-content .carousel-indicators button{
-  width: 5px;
-  height: 33%;
   background-color: var(--info-color);
-  border: none;
-  margin: 5px;
 }
 .about-us-content .content-title {
     left: 0;
@@ -461,3 +390,119 @@
     background-color: var(--info-color); /* màu */
     transform: translateY(-50%);
   }
+
+  /* Responsive: Full screen menu trên mobile */
+@media (max-width: 768px) {
+  #menu-content {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .mobile-menu {
+    display: block; /* Quan trọng: luôn hiển thị để transition hoạt động */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(-100%); /* Ẩn menu bên trái */
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    padding-top: 80px;
+    z-index: 999;
+  }
+  
+  .mobile-menu.show {
+    transform: translateX(0); /* Hiện menu */
+  }
+} 
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 50vh;
+  }
+  .carousel-item {
+    height: 50vh;
+  }
+  .carousel-item .carousel-caption {
+    width: 80%;
+    left: 50%;              /* căn giữa trái phải */
+    right: auto;
+    top: 50%;              /* căn giữa trên dưới */
+    bottom: auto;
+    transform: translate(-50%, -50%); /* căn giữa cả hai chiều */
+    text-align: left;      /* text căn trái */
+  }
+  .hero-section .open-caption {
+    color: var(--secondary-color);
+    font-weight: bold;
+    position: relative;
+    padding-left: 30px; /* chừa chỗ cho đường kẻ */
+  }
+  .hero-section .open-caption::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 25px;        /* độ dài đường kẻ */
+    height: 2px;        /* độ dày */
+    background-color: var(--secondary-color); /* màu */
+    transform: translateY(-50%);
+  }
+  .hero-section .main-caption {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .section-title {
+    position: relative;
+    display: flex;
+    align-items: center;      /* căn giữa trên–dưới */
+    justify-content: center;  /* căn giữa trái–phải */
+    width: 100%;
+    height: 100px;
+    text-align: center;
+  }
+
+  .main-section-title {
+    font-family: 'Yellowtail', cursive;
+    font-size: 40px;
+    font-weight: semi-bold;
+    color: var(--primary-color);
+    opacity: 0.7;
+  }
+  .sub-section-title {
+    display: none;
+  }
+
+  .about-us img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  .about-us-content{
+    margin-top: 20px;
+  }
+
+  .services-section .services-content .card {
+    max-height: 100%;
+  }
+  .services-section .services-content .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .news-section .news-content .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
