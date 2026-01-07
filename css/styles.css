@@ -325,7 +325,7 @@
   width: 100%;
   height: 350px;
   object-fit: cover;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
 }
 .about-us-content .carousel{
   height: 350px;
@@ -365,7 +365,7 @@
     width: 100%;
     height: 350px;
     object-fit: cover;
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px;
   }
 
   .cta-content h5 {
@@ -489,13 +489,6 @@
   .sub-section-title {
     display: none;
   }
-
-  .about-us img{
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-  }
   .about-us-content{
     margin-top: 20px;
   }
@@ -511,12 +504,5 @@
   .news-section .news-content .card:hover {
     transform: none;
     box-shadow: none;
-  }
-
-  .cta-section img{
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 0 0 10px 10px;
   }
 }
