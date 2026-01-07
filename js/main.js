@@ -42,7 +42,23 @@ function closeMenuOnLinkClick() {
         });
     });
 }
-
+function addBlurOnScroll(selector) {
+    gsap.set(selector, {
+      filter: "blur(10px)",
+    });
+  
+    gsap.to(selector, {
+      scrollTrigger: {
+        trigger: selector,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+      filter: "blur(0)",
+      duration: 1,
+      ease: "power2.inOut",
+    });
+  }
 // Initialize menu khi DOM ready
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
@@ -117,4 +133,20 @@ window.addEventListener('preloaderComplete', function() {
     setTimeout(() => {
         tl.play();
     }, 1800);
+    
+    gsap.registerPlugin(ScrollTrigger); // ✅ cần dòng này
+    // About section
+addBlurOnScroll(".about-us");
+
+// Services
+addBlurOnScroll(".services-section");
+
+// News
+addBlurOnScroll(".news-section");
+
+// CTA
+addBlurOnScroll(".cta-section");
+
+// Testimonials
+addBlurOnScroll(".testimonials-section");
 });

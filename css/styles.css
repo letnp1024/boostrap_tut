@@ -326,6 +326,7 @@
   height: 350px;
   object-fit: cover;
   border-radius: 10px;
+  /* filter: blur(10px); */
 }
 .about-us-content .carousel{
   height: 350px;
